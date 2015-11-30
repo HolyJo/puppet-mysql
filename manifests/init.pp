@@ -22,7 +22,7 @@ class mysql::install-wordpress-db($wordpress_db_username, $wordpress_db_password
 
     exec { 'create-wordpress-db':
         unless => "/usr/bin/mysql -u${wordpress_db_username} -p${wordpress_db_password}",
-        command => "/usr/bin/mysql -uroot -e \"GRANT ALL PRIVILEGES ON *.wpmarketing TO ${wordpress_db_username}@localhost IDENTIFIED BY '${wordpress_db_password}';\"",
+        command => "/usr/bin/mysql -uroot -e \"GRANT ALL PRIVILEGES ON wpmarketing.* TO ${wordpress_db_username}@localhost IDENTIFIED BY '${wordpress_db_password}';\"",
         require => Service["mysqld"],
     }
 
