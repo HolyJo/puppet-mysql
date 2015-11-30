@@ -19,17 +19,6 @@ class mysql::install($db_username, $db_password) {
 }
 
 class mysql::install-wordpress-db($wordpress_db_username, $wordpress_db_password) {
-    package { 'mysql-server':
-        ensure => installed
-    }
-
-    service { 'mysqld':
-        ensure => 'running',
-        enable => true,
-        hasrestart => true,
-        hasstatus => true,
-        subscribe => Package['mysql-server'],
-    }
 
     exec { 'create-db':
         unless => "/usr/bin/mysql -u${wordpress_db_username} -p${wordpress_db_password}",
