@@ -1,6 +1,6 @@
 class mysql::install($db_username, $db_password) {
     package { 'mysql-community-server':
-        ensure => "5.6.27"
+        ensure => installed
     }
 
     service { 'mysqld':
