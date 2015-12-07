@@ -1,6 +1,6 @@
 class mysql::install($db_username, $db_password) {
     package { 'mysql-server':
-        ensure => installed
+        ensure => '5.7.9'
     }
 
     service { 'mysqld':
