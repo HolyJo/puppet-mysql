@@ -8,7 +8,7 @@ class mysql::install($db_username, $db_password) {
         enable => true,
         hasrestart => true,
         hasstatus => true,
-        subscribe => Package['mysql-server'],
+        subscribe => Package['mysql-community-server'],
     }
 
     exec { 'create-db':
