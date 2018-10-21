@@ -18,7 +18,7 @@ class mysql::install($db_username, $db_password) {
     }
 }
 
-class mysql::install-wordpress-db($wordpress_db_username, $wordpress_db_password) {
+class mysql::install_wordpress_db($wordpress_db_username, $wordpress_db_password) {
 
     exec { 'create-wordpress-db':
         unless => "/usr/bin/mysql -u${wordpress_db_username} -p${wordpress_db_password}",
@@ -27,7 +27,7 @@ class mysql::install-wordpress-db($wordpress_db_username, $wordpress_db_password
     }
 }
 
-class mysql::install-stage-wordpress-db($wordpress_stage_db_username, $wordpress_stage_db_password) {
+class mysql::install_stage_wordpress_db($wordpress_stage_db_username, $wordpress_stage_db_password) {
 
     exec { 'create-stage-wordpress-db':
         unless => "/usr/bin/mysql -u${wordpress_stage_db_username} -p${wordpress_stage_db_password}",
